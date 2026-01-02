@@ -14,8 +14,6 @@ INSERT INTO famous VALUES
 (14, 12), (14, 3), (15, 14), (15, 13);
 -------------
 
-I have provided an explanation and query, but I encourage you to try solving it first. Later, you can check the query for reference.
-
 𝐄𝐱𝐩𝐥𝐚𝐧𝐚𝐭𝐢𝐨𝐧 𝐨𝐟 𝐭𝐡𝐞 𝐐𝐮𝐞𝐫𝐲:
 1. distinct_users CTE:
 Combines user_id and follower_id using UNION to get all unique users on the platform. This helps us determine the total number of users.
