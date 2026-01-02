@@ -25,3 +25,7 @@ Counts the number of followers for each user_id by grouping the rows in the famo
 
 2. Final SELECT Statement:
 Uses the data from follower_count and distinct_users to calculate the famous percentage for each user.
+
+**SOLUTION**
+
+<img width="800" height="612" alt="image" src="https://github.com/user-attachments/assets/b63c6db3-3f01-4ee8-affb-754985c37cf4" />
