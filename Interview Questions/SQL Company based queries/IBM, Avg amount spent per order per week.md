@@ -20,4 +20,5 @@ I have provided an explanation and query, but I encourage you to try solving it 
 3. Group the purchases by week number and calculate the average amount spent per order.
 
 **SOLUTION**
+
 <img width="800" height="906" alt="image" src="https://github.com/user-attachments/assets/f40a4aed-6efc-4488-a61a-7235ec03de14" />
