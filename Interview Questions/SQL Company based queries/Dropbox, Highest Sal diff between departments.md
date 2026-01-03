@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/EASY-green" alt="EASY" width="70">"70">
+<img src="https://img.shields.io/badge/EASY-green" alt="EASY" width="70">
 
 𝐓𝐫𝐲 𝐋𝐚𝐭𝐞𝐫: LinkedIn, Dropbox (Basic Level) hashtag#SQL Interview Question — Solution
 
