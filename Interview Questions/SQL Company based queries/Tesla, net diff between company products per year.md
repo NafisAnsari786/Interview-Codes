@@ -1,6 +1,6 @@
-<img src="https://img.shields.io/badge/MEDIUM-orange" alt="MEDIUM" width="70">𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Tesla(Medium Level) hashtag#SQL 
+<img src="https://img.shields.io/badge/MEDIUM-orange" alt="MEDIUM" width="70">𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: 
 
-Interview Question — Solution
+Tesla(Medium Level) hashtag#SQL Interview Question — Solution
 
 You are given a table of product launches by company by year. Write a query to count the net difference between the number of products companies launched in 2020 with the number of products companies launched in the previous year. Output the name of the companies and a net difference of net products released for 2020 compared to the previous year.
 
