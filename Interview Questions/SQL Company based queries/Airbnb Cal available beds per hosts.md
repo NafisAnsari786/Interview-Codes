@@ -23,3 +23,8 @@ I have provided an explanation and query, but I encourage you to try solving it 
 2. Grouping and Aggregating: Next, the data is grouped by the host's nationality, so that the total number of beds available for each nationality can be calculated. The SUM() function is used to add up the beds (n_beds) for all apartments hosted by individuals of the same nationality.
 
 3. Sorting the Results: Finally, the results are ordered in descending order based on the total number of available beds. This ensures that nationalities with the highest number of available beds appear at the top of the list.
+
+**SOLUTION**
+
+<img width="800" height="573" alt="image" src="https://github.com/user-attachments/assets/681995a6-f3f4-47fa-babc-ff371ecc6539" />
+
