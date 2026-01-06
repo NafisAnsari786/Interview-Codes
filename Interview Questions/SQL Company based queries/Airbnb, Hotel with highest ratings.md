@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/HARD-darkred" alt="HARD" width="70">
+
 𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Google, Airbnb, Expedia(Medium Level) hashtag#SQL Interview Question — Solution
 
 Find the three ten hotels with the highest ratings. Output the hotel name along with the corresponding average score. Sort records based on the average score in descending order.
