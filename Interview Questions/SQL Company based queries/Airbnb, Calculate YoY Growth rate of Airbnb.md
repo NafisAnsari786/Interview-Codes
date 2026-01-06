@@ -24,4 +24,5 @@ Insert data query is in comment below, due to character constraint
 
 **SOLUTION**
 
-![image.png](attachment:image.png)
+<img width="762" height="908" alt="image" src="https://github.com/user-attachments/assets/79ce9e88-e649-4879-ab14-dff86eca18c8" />
+
