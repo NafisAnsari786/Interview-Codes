@@ -46,7 +46,7 @@ AND MAX(CASE WHEN rn = 2 THEN PurchaseCount END) = 0
 AND MAX(CASE WHEN rn >= 3 THEN PurchaseCount END) > 0;
 ```
 
-**SOLUTION 2 Date based Churn**
+**SOLUTION 2 Date based Churn If dates are given**
 
 ```sql
 WITH Ranked AS (
