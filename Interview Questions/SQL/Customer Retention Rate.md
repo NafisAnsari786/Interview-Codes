@@ -2,7 +2,8 @@
 
 ![image](https://github.com/user-attachments/assets/ad68bf25-137d-4830-9a51-d0cdbe6e1c73)
 
-**SOLUTION**
+**1 SOLUTION with SELF JOIN**
+
 ```SQL
 WITH CustomerRetention AS (
     SELECT c1.CustomerID,
@@ -25,6 +26,26 @@ ROUND((RetainedCustomers / Customers) * 100, 2) AS Customer_Retention_Rate
 FROM RetentionRate
 ORDER BY Year;
 
+```
+
+**2 SOLUTION with LEAD**
+
+```sql
+WITH YearlyActivity AS (
+    SELECT 
+        CustomerID, 
+        Year,
+        LEAD(Year) OVER (PARTITION BY CustomerID ORDER BY Year) AS Next_Year
+    FROM CustomerActivity
+)
+SELECT 
+    Year,
+    COUNT(CustomerID) AS Total_Customers,
+    COUNT(CASE WHEN Next_Year = Year + 1 THEN 1 END) AS Retained_Customers,
+    ROUND(COUNT(CASE WHEN Next_Year = Year + 1 THEN 1 END) * 100.0 / COUNT(CustomerID), 2) AS Retention_Rate
+FROM YearlyActivity
+GROUP BY Year
+ORDER BY Year;
 ```
 
 **OUTPUT**
