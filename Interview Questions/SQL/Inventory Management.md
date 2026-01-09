@@ -7,7 +7,11 @@
 WITH LowStock AS (
     SELECT 
         ProductID,
-        Month,
+        CASE Month
+            WHEN 'Jan' THEN 1
+            WHEN 'Feb' THEN 2
+            WHEN 'Mar' THEN 3
+        END AS MonthNum,
         StockLevel,
         ReorderLevel,
         CASE 
@@ -16,21 +20,21 @@ WITH LowStock AS (
         END AS BelowReorderFlag
     FROM Inventory
 ),
-ConsecutiveMonths AS (
+ThreeMonthWindow AS (
     SELECT 
         ProductID,
-        Month,
         SUM(BelowReorderFlag) OVER (
             PARTITION BY ProductID 
-            ORDER BY Month 
+            ORDER BY MonthNum 
             ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
         ) AS BelowReorderCount
     FROM LowStock
 )
 SELECT DISTINCT ProductID
-FROM ConsecutiveMonths
+FROM ThreeMonthWindow
 WHERE BelowReorderCount = 3
 ORDER BY ProductID;
+
 ```
 **OUTPUT**
 
