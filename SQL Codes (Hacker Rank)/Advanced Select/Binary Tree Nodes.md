@@ -1,6 +1,7 @@
 <img src="https://img.shields.io/badge/MEDIUM-orange" alt="MEDIUM" width="70"> 
 
 ### **You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.**
+
 ![image](https://github.com/user-attachments/assets/40afd3d5-fa72-471a-880b-c38b2e3e4849)
 
 **Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:**
@@ -10,6 +11,7 @@
 - Inner: If node is neither root nor leaf node.
 
 Sample Input  
+
 ![image](https://github.com/user-attachments/assets/e221eaa6-7816-4bcb-9c11-d1b1383781f1)
  
 Sample Output
