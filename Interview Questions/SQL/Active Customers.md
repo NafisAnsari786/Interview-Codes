@@ -5,18 +5,9 @@
 **SOLUTION**
 
 ```SQL
-WITH ActiveCustomers AS (
-    SELECT CUSTOMERID, 
-           CASE   
-               WHEN DATEDIFF(LASTPURCHASEDATE, JOINDATE) <= 180 
-               THEN DATEDIFF(LASTPURCHASEDATE, JOINDATE) 
-               ELSE 0 
-           END AS ActiveDays
-    FROM CustomerData
-)
-SELECT COUNT(*) AS ActiveCustomerCount 
-FROM ActiveCustomers
-WHERE ActiveDays > 0;
+SELECT COUNT(*) AS ActiveCustomerCount
+FROM CustomerData
+WHERE LastPurchaseDate >= CURRENT_DATE - INTERVAL '6 months';
 ```
 
 ![image](https://github.com/user-attachments/assets/c5715b4e-7c67-4942-a8f2-aa1046569dcc)
