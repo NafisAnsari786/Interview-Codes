@@ -4,24 +4,20 @@
 
 **SOLUTION**
 ```sql
-WITH FulfilledOrders AS (
-    SELECT CustomerID, COUNT(*) AS FulfilledOrders
-    FROM Orders
-    WHERE OrderStatus = 'Fulfilled'
-    GROUP BY CustomerID
-),
-TotalOrders AS (
-    SELECT CustomerID, COUNT(*) AS TotalOrders
+WITH OrderStats AS (
+    SELECT 
+        CustomerID,
+        COUNT(*) AS TotalOrders,
+        SUM(CASE WHEN OrderStatus = 'Fulfilled' THEN 1 ELSE 0 END) AS FulfilledOrders
     FROM Orders
     GROUP BY CustomerID
 )
-SELECT
-    FulfilledOrders.CustomerID,
-    (FulfilledOrders.FulfilledOrders / TotalOrders.TotalOrders) * 100 AS FulfillmentPercentage
-FROM
-    FulfilledOrders
-JOIN
-    TotalOrders ON FulfilledOrders.CustomerID = TotalOrders.CustomerID;
+SELECT 
+    CustomerID,
+    ROUND((FulfilledOrders * 100.0) / TotalOrders, 2) AS FulfillmentPercentage
+FROM OrderStats
+ORDER BY CustomerID;
+
 ```
 
 **OUTPUT**
