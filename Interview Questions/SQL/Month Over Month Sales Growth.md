@@ -5,24 +5,48 @@
 **SOLUTION**
 
 ```sql
-WITH LaggedSales AS (
-    SELECT ProductID, Month, Revenue AS CurrentRevenue,
-    LAG(Revenue) OVER (Partition BY ProductID ORDER BY Month) AS PreviousRevenue
+WITH SalesWithMonthNum AS (
+    SELECT 
+        ProductID,
+        Month,
+        Revenue,
+        CASE Month
+            WHEN 'Jan' THEN 1
+            WHEN 'Feb' THEN 2
+            WHEN 'Mar' THEN 3
+        END AS MonthNum
     FROM MonthlySales
 ),
+LaggedSales AS (
+    SELECT 
+        ProductID, 
+        Month, 
+        Revenue AS CurrentRevenue,
+        LAG(Revenue) OVER (
+            PARTITION BY ProductID 
+            ORDER BY MonthNum
+        ) AS PreviousRevenue
+    FROM SalesWithMonthNum
+),
 GrowthRate AS (
-    SELECT ProductID,
-    Month,
-    CurrentRevenue, PreviousRevenue,
-    ROUND(((CurrentRevenue - PreviousRevenue)/NULLIF(PreviousRevenue, 0))*100, 2) AS GrowthPercentage
+    SELECT 
+        ProductID,
+        Month,
+        CurrentRevenue, 
+        PreviousRevenue,
+        ROUND(
+            ((CurrentRevenue - PreviousRevenue) / NULLIF(PreviousRevenue, 0)) * 100, 
+            2
+        ) AS GrowthPercentage
     FROM LaggedSales
     WHERE PreviousRevenue IS NOT NULL
 )
-SELECT ProductID,
-Month,
-CurrentRevenue,
-PreviousRevenue,
-GrowthPercentage
+SELECT 
+    ProductID,
+    Month,
+    CurrentRevenue,
+    PreviousRevenue,
+    GrowthPercentage
 FROM GrowthRate
 ORDER BY ProductID, Month;
 
