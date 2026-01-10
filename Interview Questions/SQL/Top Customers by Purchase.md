@@ -4,21 +4,32 @@
 
 **SOLUTION**
 ```SQL
-WITH TopCust AS ( 
+WITH CustomerTotals AS (
+    -- Step 1: Sum the purchases for each customer per region
     SELECT 
-        CUSTOMERID, 
-        REGION, 
-        PURCHASEAMOUNT,
-        ROW_NUMBER() OVER (PARTITION BY REGION ORDER BY PURCHASEAMOUNT DESC) AS rownum
-    FROM CUSTOMERPURCHASE
+        Region, 
+        CustomerID, 
+        SUM(PurchaseAmount) AS Total_PurchaseAmount
+    FROM CustomerPurchases
+    GROUP BY Region, CustomerID
+),
+RankedCustomers AS (
+    -- Step 2: Rank customers based on their total spend
+    SELECT 
+        Region, 
+        CustomerID, 
+        Total_PurchaseAmount,
+        ROW_NUMBER() OVER (PARTITION BY Region ORDER BY Total_PurchaseAmount DESC) AS rownum
+    FROM CustomerTotals
 )
+-- Step 3: Select the top 3 per region
 SELECT 
-    REGION, 
-    CUSTOMERID, 
-    SUM(PURCHASEAMOUNT) AS TOTAL_PURCHASEAMOUNT
-FROM TopCust
+    Region, 
+    CustomerID, 
+    Total_PurchaseAmount
+FROM RankedCustomers
 WHERE rownum <= 3
-GROUP BY REGION, CUSTOMERID;
+ORDER BY Region, Total_PurchaseAmount DESC;
 ```
 **OUTPUT**
 
