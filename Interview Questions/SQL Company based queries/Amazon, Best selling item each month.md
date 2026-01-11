@@ -1,4 +1,3 @@
-
 <img src="https://img.shields.io/badge/HARD-darkred" alt="HARD" width="70">
 
 𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Amazon (Hard Level) hashtag#SQL Interview Question — Solution
