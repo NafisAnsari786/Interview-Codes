@@ -5,5 +5,5 @@ To see which records are repeated, you group by the columns that should be uniqu
 SELECT emp_id, COUNT(*)
 FROM Employees
 GROUP BY emp_id
-WHERE COUNT(*) > 1;
+HAVING COUNT(*) > 1;
 ```
