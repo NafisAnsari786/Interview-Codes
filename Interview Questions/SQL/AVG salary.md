@@ -4,20 +4,29 @@
  
 ![image](https://github.com/user-attachments/assets/f9ed2d30-cf67-4e06-91c9-f99a00c21052)
 
-**SOLUTION**
+**SOLUTION 1**
 
 ```sql
-WITH HighestAVGSal AS (
-    SELECT 
-        DEPARTMENT, 
-        SALARY,
-        DENSE_RANK() OVER (PARTITION BY DEPARTMENT ORDER BY SALARY DESC) as dense_rank
-    FROM EMPLOYEES
+SELECT Department, AVG(Salary) AS avg_salary
+FROM Employees
+GROUP BY Department
+ORDER BY avg_salary DESC
+LIMIT 1;
+```
+
+**SOLUTION 2 Using CTE & Window Function**
+
+```sql
+WITH AvgSalary AS (
+SELECT Department, AVG(Salary) AS avg_salary
+FROM Employees
+),
+WITH RankedAverages AS (
+SELECT Department, avg_salary,
+DENSE_RANK() OVER (ORDER BY avg_salary DESC) AS drnk
 )
-SELECT  
-    DEPARTMENT,
-    AVG(SALARY) AS AvgSal
-FROM HighestAVGSal
-WHERE dense_rank = 1
-GROUP BY DEPARTMENT;
+SELECT Department, avg_salary
+FROM RankedAverages
+WHERE drnk = 1
+;
 ```
