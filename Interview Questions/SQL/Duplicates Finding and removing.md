@@ -27,6 +27,20 @@ SELECT * FROM DuplicateFinder
 WHERE row_num > 1;
 ```
 
+**B. Removing Duplicates using CTE**
+
+```sql
+WITH DuplicateFinder AS (
+SELECT id, emp_id,
+ROW_NUMBER() OVER (PARTION BY emp_id ORDER BY id ASC) AS row_num
+FROM Employees
+)
+DELETE FROM Employees
+WHERE id IN (
+SELECT id FROM DuplicateFinder
+WHERE row_num > 1
+);
+```
 
 
 
