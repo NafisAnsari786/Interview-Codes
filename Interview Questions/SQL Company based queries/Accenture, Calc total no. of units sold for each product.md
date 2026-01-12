@@ -32,4 +32,5 @@ I have provided an explanation and query, but I encourage you to try solving it 
 
 **SOLUTION**
 
-<img width="761" height="589" alt="image" src="https://github.com/user-attachments/assets/191806ae-c887-416f-ae7e-0a1ca55143fd" />
+<img width="1261" height="800" alt="image" src="https://github.com/user-attachments/assets/8cc84372-03ea-4f52-8e80-c7a9ce442fcf" />
+
