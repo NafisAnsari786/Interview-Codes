@@ -31,6 +31,21 @@ I have provided an explanation and query, but I encourage you to try solving it 
 3. GROUP BY product_id: This groups the data by product_id so we can calculate the sum for each product.
 
 **SOLUTION**
+```sql
+SELECT 
+	product_id, 
+    SUM(quantity) AS total_units_sold,
+    CASE
+		WHEN SUM(quantity) > 30 THEN 'Outstanding'
+        WHEN SUM(quantity) BETWEEN 20 AND 29 THEN 'Satisfactory'
+        WHEN SUM(quantity) BETWEEN 10 AND 19 THEN 'Unsatisfactory'
+        WHEN SUM(quantity) BETWEEN 1 AND 9 THEN 'Poor'
+	END AS ad_perfromance
+FROM marketing_campaign
+GROUP BY product_id
+ORDER BY total_units_sold DESC;
+```
+
 
 <img width="1261" height="800" alt="image" src="https://github.com/user-attachments/assets/8cc84372-03ea-4f52-8e80-c7a9ce442fcf" />
 
