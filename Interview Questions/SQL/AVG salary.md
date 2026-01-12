@@ -27,6 +27,5 @@ DENSE_RANK() OVER (ORDER BY avg_salary DESC) AS drnk
 )
 SELECT Department, avg_salary
 FROM RankedAverages
-WHERE drnk = 1
-;
+WHERE drnk = 1;
 ```
