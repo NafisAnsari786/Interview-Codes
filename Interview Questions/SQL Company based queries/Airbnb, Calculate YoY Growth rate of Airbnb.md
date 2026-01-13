@@ -25,5 +25,32 @@ INSERT INTO airbnb_search_details (id, price, property_type, room_type, amenitie
 
 **SOLUTION**
 
-<img width="762" height="908" alt="image" src="https://github.com/user-attachments/assets/79ce9e88-e649-4879-ab14-dff86eca18c8" />
+```sql
+WITH YearlyHostCount AS (
+    SELECT 
+        EXTRACT(YEAR FROM host_since) AS current_year,
+        COUNT(id) AS hosts_in_current_year
+        FROM meta.airbnb_search_details
+        GROUP BY EXTRACT(YEAR FROM host_since)
+),
+GrowthData AS (
+    SELECT 
+        current_year,
+        hosts_in_current_year,
+        LAG(hosts_in_current_year) OVER (ORDER BY current_year) AS hosts_in_previous_year
+        FROM YearlyHostCount
+)
+SELECT
+    current_year,
+    hosts_in_current_year,
+    hosts_in_previous_year,
+    ROUND(
+        ((hosts_in_current_year - hosts_in_previous_year) * 100.0) / NULLIF(hosts_in_previous_year, 0), 2
+     ) AS Growth_Rate
+FROM GrowthData
+ORDER BY current_year ASC;
+```
+
+<img width="768" height="246" alt="image" src="https://github.com/user-attachments/assets/525e673e-ac0b-48bc-9472-a3d1285c87a0" />
+
 
