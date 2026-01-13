@@ -2,6 +2,7 @@
 
 𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Airbnb(Medium Level) hashtag#SQL Interview Question — Solution
 
+
 Find the total number of available beds per hosts' nationality.
 Output the nationality along with the corresponding total number of available beds. Sort records by the total available beds in descending order.
 
