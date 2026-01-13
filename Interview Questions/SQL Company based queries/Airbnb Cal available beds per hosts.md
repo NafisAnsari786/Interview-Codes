@@ -27,8 +27,12 @@ I have provided an explanation and query, but I encourage you to try solving it 
 
 3. Sorting the Results: Finally, the results are ordered in descending order based on the total number of available beds. This ensures that nationalities with the highest number of available beds appear at the top of the list.
 
-**SOLUTION**
+**SOLUTION 1**
 
 <img width="1191" height="533" alt="image" src="https://github.com/user-attachments/assets/42176b1f-6eae-4b12-bd21-c89a366ccef3" />
+
+**SOLUTION 2**
+
+<img width="1315" height="640" alt="image" src="https://github.com/user-attachments/assets/eaaa93c3-0d62-45db-bdf8-fd90835b9955" />
 
 
