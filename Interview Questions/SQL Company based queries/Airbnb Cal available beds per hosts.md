@@ -1,5 +1,6 @@
 <img src="https://img.shields.io/badge/MEDIUM-orange" alt="MEDIUM" width="70">
 
+
 𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Airbnb(Medium Level) hashtag#SQL Interview Question — Solution
 
 
