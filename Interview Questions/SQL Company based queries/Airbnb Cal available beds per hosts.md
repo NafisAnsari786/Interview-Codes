@@ -15,6 +15,7 @@ CREATE TABLE airbnb_hosts(host_id int,nationality  varchar(15),gender varchar(5)
 INSERT INTO airbnb_hosts  VALUES(0,'USA','M',28),(1,'USA','F',29),(2,'China','F',31),(3,'China','M',24),(4,'Mali','M',30),(5,'Mali','F',30);
 -------------
 
+
 I have provided an explanation and query, but I encourage you to try solving it first. Later, you can check the query for reference.
 
 𝐄𝐱𝐩𝐥𝐚𝐧𝐚𝐭𝐢𝐨𝐧 𝐨𝐟 𝐭𝐡𝐞 𝐐𝐮𝐞𝐫𝐲:
