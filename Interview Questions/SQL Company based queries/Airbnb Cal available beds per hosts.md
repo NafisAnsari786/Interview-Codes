@@ -37,11 +37,22 @@ ON A.host_id = H.host_id
 GROUP BY H.nationality
 ORDER BY total_available_beds DESC;
 ```
-
 <img width="1191" height="533" alt="image" src="https://github.com/user-attachments/assets/42176b1f-6eae-4b12-bd21-c89a366ccef3" />
 
 **SOLUTION 2**
 
+```sql
+WITH Hosts_info AS (
+SELECT h.nationality AS hosts_nationality, SUM(a.n_beds) AS total_beds
+FROM meta.airbnb_apartments AS a
+INNER JOIN meta.airbnb_hosts h
+on a.host_id = h.host_id
+GROUP BY h.nationality
+)
+SELECT hosts_nationality, total_beds
+FROM Hosts_info
+ORDER BY total_beds DESC;
+```
 <img width="1315" height="640" alt="image" src="https://github.com/user-attachments/assets/eaaa93c3-0d62-45db-bdf8-fd90835b9955" />
 
 
