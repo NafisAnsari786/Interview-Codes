@@ -29,6 +29,15 @@ I have provided an explanation and query, but I encourage you to try solving it 
 
 **SOLUTION 1**
 
+```sql
+SELECT H.nationality, SUM(A.n_beds) AS total_available_beds
+FROM meta.airbnb_apartments A
+INNER JOIN meta.airbnb_hosts H
+ON A.host_id = H.host_id
+GROUP BY H.nationality
+ORDER BY total_available_beds DESC;
+```
+
 <img width="1191" height="533" alt="image" src="https://github.com/user-attachments/assets/42176b1f-6eae-4b12-bd21-c89a366ccef3" />
 
 **SOLUTION 2**
