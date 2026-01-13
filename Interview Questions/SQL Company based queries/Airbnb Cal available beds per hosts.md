@@ -29,5 +29,6 @@ I have provided an explanation and query, but I encourage you to try solving it 
 
 **SOLUTION**
 
-<img width="800" height="573" alt="image" src="https://github.com/user-attachments/assets/681995a6-f3f4-47fa-babc-ff371ecc6539" />
+<img width="1191" height="533" alt="image" src="https://github.com/user-attachments/assets/42176b1f-6eae-4b12-bd21-c89a366ccef3" />
+
 
