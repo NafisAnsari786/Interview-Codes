@@ -27,4 +27,5 @@ SELECT hotel_name, average_Score
 FROM HighestRatings
 WHERE d_rnk <= 3;
 ```
+<img width="1152" height="540" alt="image" src="https://github.com/user-attachments/assets/7a1daf08-39de-4c9e-ae53-63bbf21a5a29" />
 
