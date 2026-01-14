@@ -23,6 +23,27 @@ SUM aggregates the total sales for each item in a given month.
 3. Final Query: Filters to return only the best-selling item for each month (sales_rank = 1).
 
 **SOLUTION**
+```sql
+WITH MonthlySales AS (
+	SELECT 
+		EXTRACT(MONTH FROM invoicedate) AS month,
+        description,
+        ROUND(SUM(quantity * unitprice), 2) AS total_Sales
+        FROM meta.online_retail
+        GROUP BY month, description
+),
+RankedSales AS (
+	SELECT 
+		month, description, total_sales,
+        DENSE_RANK() OVER (PARTITION BY month ORDER BY total_sales) AS sales_rank
+        FROM MonthlySales
+)
+SELECT 
+	month, description, total_sales
+    FROM RankedSales
+    WHERE sales_rank = 1
+    ORDER BY month ASC;
+```
 
 <img width="788" height="233" alt="image" src="https://github.com/user-attachments/assets/394f3756-4b66-48c3-aaa8-7928d7cae04a" />
 
