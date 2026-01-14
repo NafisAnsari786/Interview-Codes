@@ -2,7 +2,7 @@
 
 𝐌𝐮𝐬𝐭 𝐓𝐫𝐲: Google, Airbnb, Expedia(Medium Level) hashtag#SQL Interview Question — Solution
 
-Find the three ten hotels with the highest ratings. Output the hotel name along with the corresponding average score. Sort records based on the average score in descending order.
+Find the Top three hotels with the highest ratings. Output the hotel name along with the corresponding average score. Sort records based on the average score in descending order.
 
 🔍Give a test and share the output! 👇
 
@@ -18,4 +18,4 @@ The question might look intimidating at first glance—detailed enough to make y
 
 **SOLUTION**
 
-<img width="480" height="234" alt="image" src="https://github.com/user-attachments/assets/a3fc4fc1-d76c-4f75-9b4f-5204f69fdfb3" />
+
