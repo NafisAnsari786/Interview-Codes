@@ -17,5 +17,14 @@ INSERT INTO hotel_address (hotel_address, additional_number_of_scoring, review_d
 The question might look intimidating at first glance—detailed enough to make you wonder, what even is this? But it's so simple ryt...
 
 **SOLUTION**
-
+```sql
+ WITH HighestRatings AS (
+	SELECT hotel_name, average_score,
+    DENSE_RANK() OVER (ORDER BY average_score DESC) AS d_rnk
+    FROM hotel_address
+)
+SELECT hotel_name, average_Score
+FROM HighestRatings
+WHERE d_rnk <= 3;
+```
 
