@@ -5,14 +5,16 @@
 **SOLUTION**
 
 ```python
-import pandas as pd 
-df=pd.read_csv('sales_data.csv')
+import pandas as pd
 
-unique_df = df.drop_duplicates(keep='first')
+df = pd.DataFrame({
+    'SalesID': [1,2,3,4],
+    'ProductID': [201,202,201,203],
+    'Quantity': [2,3,2,1],
+    'Revenue': [500,600,500,300]
+})
 
-#Optional, to check how many duplicates were removed
-print(f"Number of duplicates removed: {len(df) - len(unique_df)}")
-
+unique_df = df.drop_duplicates(subset=['ProductID','Quantity','Revenue'], keep='first')
 unique_df
 ```
 **OUTPUT**
