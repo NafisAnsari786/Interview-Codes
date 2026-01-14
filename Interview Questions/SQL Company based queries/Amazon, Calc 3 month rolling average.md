@@ -23,5 +23,6 @@ INSERT INTO amazon_purchases (created_at, purchase_amt, user_id) VALUES ('2023-0
 
 **SOLUTION**
 
-<img width="800" height="614" alt="image" src="https://github.com/user-attachments/assets/7cc77395-c609-480c-83ae-533c187a54d0" />
+<img width="1382" height="798" alt="image" src="https://github.com/user-attachments/assets/b835491a-7600-4e47-a18b-3cbb5020b21a" />
+
 
