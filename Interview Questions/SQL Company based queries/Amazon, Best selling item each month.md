@@ -24,4 +24,5 @@ SUM aggregates the total sales for each item in a given month.
 
 **SOLUTION**
 
-<img width="800" height="827" alt="image" src="https://github.com/user-attachments/assets/bb3f0e8f-1ebf-415e-a1df-dca0d7bf996b" />
+<img width="788" height="233" alt="image" src="https://github.com/user-attachments/assets/394f3756-4b66-48c3-aaa8-7928d7cae04a" />
+
