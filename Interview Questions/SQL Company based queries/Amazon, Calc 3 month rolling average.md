@@ -22,6 +22,22 @@ INSERT INTO amazon_purchases (created_at, purchase_amt, user_id) VALUES ('2023-0
 2. RollingAverage CTE: For each month (mr1), joins it with the previous two months (mr2) using a date difference of up to 2 months. Computes the average total revenue across the current and previous two months.
 
 **SOLUTION**
+```sql
+WITH MonthlyRevenue AS (
+    SELECT 
+        DATE_FORMAT(created_at, '%Y-%m') AS YearMonth,
+        SUM(purchase_amt) AS TotalRevenue
+        FROM meta.amazon_purchases
+        WHERE purchase_amt > 0
+        GROUP BY YearMonth
+)
+SELECT YearMonth,
+    ROUND( 
+		AVG(TotalRevenue) OVER (ORDER BY YearMonth
+		ROWS BETWEEN 2 PRECEDING AND CURRENT ROW ), 2)AS RollingAvgRevenue
+FROM MonthlyRevenue
+ORDER BY YearMonth;
+```
 
 <img width="1382" height="798" alt="image" src="https://github.com/user-attachments/assets/b835491a-7600-4e47-a18b-3cbb5020b21a" />
 
