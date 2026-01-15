@@ -4,7 +4,7 @@
 
 Find the Top three hotels with the highest ratings. Output the hotel name along with the corresponding average score. Sort records based on the average score in descending order.
 
-🔍Give a test and share the output! 👇
+🔍Give a test and share the output! 👇 
 
 𝐒𝐜𝐡𝐞𝐦𝐚 𝐚𝐧𝐝 𝐃𝐚𝐭𝐚𝐬𝐞𝐭
 CREATE TABLE hotel_address (hotel_address VARCHAR(255),additional_number_of_scoring INT,review_date DATETIME,average_score FLOAT,hotel_name VARCHAR(255),reviewer_nationality VARCHAR(50),negative_review VARCHAR(MAX),review_total_negative_word_counts INT,total_number_of_reviews INT,positive_review VARCHAR(MAX),review_total_positive_word_counts INT,total_number_of_reviews_reviewer_has_given INT,reviewer_score FLOAT,tags VARCHAR(255),days_since_review VARCHAR(50),lat FLOAT,lng FLOAT);
