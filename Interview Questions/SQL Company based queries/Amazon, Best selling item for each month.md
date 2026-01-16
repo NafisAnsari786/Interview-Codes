@@ -20,5 +20,33 @@ INSERT INTO online_retails (country, customerid, description, invoicedate, invoi
 3. Filtering and Grouping: Filters only items that belong to the invoice with the maximum total for each month. Groups by month and description to find the best-selling item.
 
 **SOLUTION**
+```sql
+WITH MonthlyItemSales AS (
+    SELECT 
+        EXTRACT(MONTH FROM invoicedate) AS month,
+        description,
+        SUM(quantity * unitprice) AS total_amount
+    FROM meta.online_retails
+    GROUP BY month, description
+),
+BestSellingItems AS (
+    SELECT 
+        month,
+        description,
+        total_amount,
+        DENSE_RANK() OVER (
+            PARTITION BY month 
+            ORDER BY total_amount DESC
+        ) AS sales_rank
+    FROM MonthlyItemSales
+)
+SELECT 
+    month,
+    description,
+    total_amount
+FROM BestSellingItems
+WHERE sales_rank <= 3
+ORDER BY month;
+```
 
 <img width="800" height="587" alt="image" src="https://github.com/user-attachments/assets/0a0d111b-acbb-4904-821c-5866a29b7695" />
