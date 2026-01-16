@@ -49,4 +49,5 @@ WHERE sales_rank <= 3
 ORDER BY month;
 ```
 
-<img width="800" height="587" alt="image" src="https://github.com/user-attachments/assets/0a0d111b-acbb-4904-821c-5866a29b7695" />
+<img width="672" height="180" alt="image" src="https://github.com/user-attachments/assets/b797307a-cac0-464f-9540-60bf0d8a6817" />
+
