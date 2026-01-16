@@ -35,7 +35,7 @@ WITH MonthlySales AS (
 RankedSales AS (
 	SELECT 
 		month, description, total_sales,
-        DENSE_RANK() OVER (PARTITION BY month ORDER BY total_sales) AS sales_rank
+        DENSE_RANK() OVER (PARTITION BY month ORDER BY total_sales DESC) AS sales_rank
         FROM MonthlySales
 )
 SELECT 
