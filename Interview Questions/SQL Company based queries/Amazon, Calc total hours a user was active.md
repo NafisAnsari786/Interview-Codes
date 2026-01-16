@@ -22,6 +22,20 @@ I have provided an explanation and query, but I encourage you to try solving it 
 3. Final SELECT: Sum the active minutes for each cust_id. Divide the total minutes by 60 to convert them to hours.
 
 **SOLUTION**
+```sql
+WITH LogPairing AS (
+	SELECT cust_id, state, timestamp,
+    LAG(timestamp) OVER (PARTITION BY cust_id ORDER BY timestamp) AS prev_timestamp,
+    LAG(state) OVER (PARTITION BY cust_id ORDER BY timestamp) AS prev_state
+    FROM meta.customer_state_log
+)
+SELECT cust_id,
+ROUND(SUM(TIMESTAMPDIFF(MINUTE, prev_timestamp, timestamp)) / 60.0, 2) AS active_hours
+FROM LogPairing
+WHERE state = 0
+AND prev_state = 1
+GROUP BY cust_id;
+```
 
 <img width="1580" height="747" alt="image" src="https://github.com/user-attachments/assets/ce467d68-f9e8-4cbc-9cb5-f7738d5cb461" />
 
