@@ -22,6 +22,7 @@ I have provided an explanation and query, but I encourage you to try solving it 
 3. Final SELECT: Sum the active minutes for each cust_id. Divide the total minutes by 60 to convert them to hours.
 
 **SOLUTION**
+
 ```sql
 WITH LogPairing AS (
 	SELECT cust_id, state, timestamp,
