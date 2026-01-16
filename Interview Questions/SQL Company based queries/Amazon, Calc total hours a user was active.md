@@ -23,4 +23,5 @@ I have provided an explanation and query, but I encourage you to try solving it 
 
 **SOLUTION**
 
-<img width="800" height="496" alt="image" src="https://github.com/user-attachments/assets/cb16a8a6-b5c4-4fbd-b377-03faa90508ec" />
+<img width="1580" height="747" alt="image" src="https://github.com/user-attachments/assets/ce467d68-f9e8-4cbc-9cb5-f7738d5cb461" />
+
