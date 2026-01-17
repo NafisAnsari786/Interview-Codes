@@ -4,6 +4,7 @@
 
 **SOLUTION**
 
+
 ```SQL
 SELECT COUNT(*) AS ActiveCustomerCount
 FROM CustomerData
