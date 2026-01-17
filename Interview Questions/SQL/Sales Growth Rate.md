@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/cdc1b35f-ec1b-4c8c-8596-0cbd1486ac33)
 
+
 **SOLUTION**
 ```sql
 WITH LaggedSales AS (
