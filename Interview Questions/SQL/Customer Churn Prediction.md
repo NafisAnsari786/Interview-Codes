@@ -98,4 +98,5 @@ AND MAX(CASE WHEN rn > 2 THEN PurchaseCount END) > 0;
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/75a03816-7d6a-4489-929c-d13a144ec890)
+<img width="1230" height="763" alt="image" src="https://github.com/user-attachments/assets/a6687486-7110-4900-bc45-f85ea5f04a87" />
+
