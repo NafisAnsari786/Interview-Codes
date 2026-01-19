@@ -37,11 +37,15 @@ INSERT INTO CustomerData (CustomerID, Name, JoinDate, LastPurchaseDate, Status) 
 
 **SOLUTION MySQL**
 
-
 ```SQL
 SELECT COUNT(*) AS ActiveCustomerCount
 FROM CustomerData
 WHERE LastPurchaseDate >= CURRENT_DATE - INTERVAL '6 months';
 ```
-
+**SOLUTION SQL server**
+```sql
+SELECT COUNT(*) AS ActiveCustomerCount
+FROM CustomerData
+WHERE LastPurchaseDate >= DATEADD(MONTH, -6, GETDATE());
+```
 ![image](https://github.com/user-attachments/assets/c5715b4e-7c67-4942-a8f2-aa1046569dcc)
