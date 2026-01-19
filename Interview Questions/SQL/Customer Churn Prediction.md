@@ -2,6 +2,36 @@
 
 ![image](https://github.com/user-attachments/assets/0b3c68cf-95d1-4eb1-90dc-545d80a30b41)
 
+CREATE TABLE CustomerPurchases (
+    CustomerID INT,
+    [Month] VARCHAR(20),
+    PurchaseCount INT
+);
+
+INSERT INTO CustomerPurchases (CustomerID, [Month], PurchaseCount) VALUES
+(401, 'Nov-2025', 4),
+(401, 'Dec-2025', 3),
+(401, 'Jan-2026', 2),
+(401, 'Feb-2026', 0),
+(401, 'Mar-2026', 0),
+
+(402, 'Nov-2025', 2),
+(402, 'Dec-2025', 1),
+(402, 'Jan-2026', 0),
+(402, 'Feb-2026', 0),
+(402, 'Mar-2026', 0),
+
+(403, 'Nov-2025', 5),
+(403, 'Dec-2025', 4),
+(403, 'Jan-2026', 3),
+(403, 'Feb-2026', 2),
+(403, 'Mar-2026', 1),
+
+(404, 'Nov-2025', 1),
+(404, 'Dec-2025', 0),
+(404, 'Jan-2026', 0),
+(404, 'Feb-2026', 0),
+(404, 'Mar-2026', 0);
 **SOLUTION**
 
 **SOLUTION 1 FOR Months based Churn**
