@@ -37,4 +37,5 @@ SELECT Department, AvgOvertime
 FROM DepartmentStats
 WHERE NumberofEmployee > 5;
 ```
-<img width="872" height="442" alt="image" src="https://github.com/user-attachments/assets/d1318cd4-67dc-481b-9378-1f4bfe144aa0" />
+<img width="892" height="442" alt="image" src="https://github.com/user-attachments/assets/d9757e0b-c4c0-4318-8ce2-467a0d17a64d" />
+
