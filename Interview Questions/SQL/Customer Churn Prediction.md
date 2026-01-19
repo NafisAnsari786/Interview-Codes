@@ -6,42 +6,40 @@
 
 **SOLUTION 1 FOR Months based Churn**
 ```sql
-WITH MonthOrdered AS (
-    SELECT
-        CustomerID,
-        Month,
-        PurchaseCount,
-        CASE UPPER(Month)
-            WHEN 'JAN' THEN 1
-            WHEN 'FEB' THEN 2
-            WHEN 'MAR' THEN 3
-            WHEN 'APR' THEN 4
-            WHEN 'MAY' THEN 5
-            WHEN 'JUN' THEN 6
-            WHEN 'JUL' THEN 7
-            WHEN 'AUG' THEN 8
-            WHEN 'SEP' THEN 9
-            WHEN 'OCT' THEN 10
-            WHEN 'NOV' THEN 11
-            WHEN 'DEC' THEN 12
-        END AS month_num
-    FROM CustomerPurchases
+WITH MonthParsed AS (
+	SELECT CustomerID,
+	PurchaseCount,
+	CAST(RIGHT(Month, 4)AS INT) AS year_num,
+	CASE LEFT(Month, 3)
+		WHEN 'Jan' THEN 1
+		WHEN 'Feb' THEN 2
+		WHEN 'Mar' THEN 3
+		WHEN 'Apr' THEN 4
+		WHEN 'May' THEN 5
+		WHEN 'Jun' THEN 6
+		WHEN 'Jul' THEN 7
+		WHEN 'Aug' THEN 8
+		WHEN 'Sep' THEN 9
+		WHEN 'Oct' THEN 10
+		WHEN 'Nov' THEN 11
+		WHEN 'Dec' THEN 12
+	END AS month_num
+FROM CustomerPurchases
 ),
 RankedMonths AS (
-    SELECT
-        CustomerID,
-        PurchaseCount,
-        ROW_NUMBER() OVER (
-            PARTITION BY CustomerID
-            ORDER BY month_num DESC
-        ) AS rn
-    FROM MonthOrdered
+	SELECT 
+		CustomerID,
+		PurchaseCount,
+		ROW_NUMBER() OVER (
+		PARTITION BY CustomerID 
+		ORDER BY year_num DESC, month_num DESC) as rn
+	FROM MonthParsed
 )
 SELECT CustomerID
 FROM RankedMonths
 GROUP BY CustomerID
 HAVING
-    MAX(CASE WHEN rn = 1 THEN PurchaseCount END) = 0
+	MAX(CASE WHEN rn = 1 THEN PurchaseCount END) = 0
 AND MAX(CASE WHEN rn = 2 THEN PurchaseCount END) = 0
 AND MAX(CASE WHEN rn >= 3 THEN PurchaseCount END) > 0;
 ```
