@@ -48,4 +48,5 @@ SELECT COUNT(*) AS ActiveCustomerCount
 FROM CustomerData
 WHERE LastPurchaseDate >= DATEADD(MONTH, -6, GETDATE());
 ```
-![image](https://github.com/user-attachments/assets/c5715b4e-7c67-4942-a8f2-aa1046569dcc)
+<img width="938" height="638" alt="image" src="https://github.com/user-attachments/assets/0bc389ca-0db1-46d2-a704-1b6b87b18ab2" />
+
