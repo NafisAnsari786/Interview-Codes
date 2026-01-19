@@ -43,5 +43,6 @@ SELECT
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/1c7d671c-1919-41de-9556-7ca1a07c3a74)
+<img width="1382" height="727" alt="image" src="https://github.com/user-attachments/assets/3e30b3fb-7a8f-429f-b1d1-c3f32bd25777" />
+
 
