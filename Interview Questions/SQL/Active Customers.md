@@ -2,7 +2,10 @@
 
 ![image](https://github.com/user-attachments/assets/73a364c7-aede-47f1-be5c-6022b80061de)
 
-**SOLUTION**
+<img width="888" height="420" alt="image" src="https://github.com/user-attachments/assets/f9b59c61-083d-484a-9c1f-52c42eaaa170" />
+
+
+**SOLUTION MySQL**
 
 
 ```SQL
