@@ -2,30 +2,49 @@
 
 ![image](https://github.com/user-attachments/assets/ad68bf25-137d-4830-9a51-d0cdbe6e1c73)
 
+CREATE TABLE CustomerActivity (
+    CustomerID INT,
+    Year INT,
+    PurchaseAmount INT
+);
+INSERT INTO CustomerActivity (CustomerID, Year, PurchaseAmount) VALUES
+(101, 2022, 1000),
+(101, 2023, 1200),
+(101, 2024, 1500),
+(102, 2022, 600),
+(102, 2023, 800),
+(103, 2023, 400),
+(104, 2023, 900),
+(104, 2024, 1100),
+(105, 2022, 700),
+(105, 2024, 950),
+(106, 2022, 500),
+(106, 2023, 650),
+(106, 2024, 900);
+
 **1 SOLUTION with SELF JOIN**
 
 ```SQL
-WITH CustomerRetention AS (
-    SELECT c1.CustomerID,
-    c1.Year AS Current_Year,
-    c2.Year AS Next_Year
-    FROM CustomerActivity c1
-    LEFT JOIN CustomerActivity c2
-    ON c1.CustomerID = c2.CustomerID
-    AND c2.Year = c1.Year + 1
+WITH YearlyActivity AS (
+	SELECT c1.CustomerID,
+	c1.Year AS CurrentYear,
+	c2.Year AS NextYear
+	FROM CustomerActivity c1
+	LEFT JOIN CustomerActivity c2
+	ON c1.CustomerID = c2.CustomerID
+	AND c2.Year = c1.Year+1
 ),
-RetentionRate AS (
-    SELECT Current_Year AS Year,
-    COUNT(DISTINCT CustomerID) AS Customers,
-    COUNT(DISTINCT CASE WHEN Next_Year IS NOT NULL THEN CustomerID END) AS RetainedCustomers
-    FROM CustomerRetention
-    GROUP BY Year
+RetentionData AS (
+	SELECT CurrentYear AS Year,
+	COUNT(DISTINCT CustomerID) AS Customers,
+	COUNT(DISTINCT CASE WHEN NextYear IS NOT NULL THEN CustomerID END) AS RetainedCustomers
+	FROM YearlyActivity
+	GROUP BY CurrentYear
 )
-SELECT Year, Customers, RetainedCustomers,
-ROUND((RetainedCustomers / Customers) * 100, 2) AS Customer_Retention_Rate
-FROM RetentionRate
+SELECT Customers, Year, RetainedCustomers,
+ROUND((CAST(RetainedCustomers AS FlOAT) / Customers)*100,2) AS CustomerRetentionRate
+FROM RetentionData
 ORDER BY Year;
-
 ```
 
 **2 SOLUTION with LEAD**
@@ -49,5 +68,6 @@ ORDER BY Year;
 ```
 
 **OUTPUT**
-![image](https://github.com/user-attachments/assets/6481b72e-d431-456c-abb9-4ef748f9a440)
+<img width="1227" height="740" alt="image" src="https://github.com/user-attachments/assets/5d9d6478-c923-4d7d-8f10-c11236584bf3" />
+
 
