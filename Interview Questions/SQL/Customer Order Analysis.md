@@ -23,7 +23,6 @@ INSERT INTO CustomerOrders (CustomerID, OrderDate, Amount) VALUES
 (104, '2024-03-15', 450),
 
 (105, '2024-01-18', 180);
-
 **1 SOLUTION with SELF JOIN**
 
 ```sql
