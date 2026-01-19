@@ -41,3 +41,6 @@ FROM Employees
 GROUP BY Department
 ORDER BY avg_salary DESC;
 ```
+
+<img width="756" height="262" alt="image" src="https://github.com/user-attachments/assets/1335f902-8195-4c82-82c2-bfe6e1eb012c" />
+
