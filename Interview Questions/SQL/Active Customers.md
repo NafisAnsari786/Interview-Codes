@@ -4,6 +4,13 @@
 
 <img width="888" height="420" alt="image" src="https://github.com/user-attachments/assets/f9b59c61-083d-484a-9c1f-52c42eaaa170" />
 
+CREATE TABLE CustomerData (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    JoinDate DATE,
+    LastPurchaseDate DATE,
+    Status VARCHAR(20)
+);
 
 **SOLUTION MySQL**
 
