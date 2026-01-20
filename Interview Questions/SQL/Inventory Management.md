@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/224a8050-79f4-4a62-a202-61d3528a864b)
 
+
 **SOLUTION**
 ```sql
 WITH LowStock AS (
