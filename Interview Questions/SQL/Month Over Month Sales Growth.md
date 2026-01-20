@@ -52,6 +52,7 @@ ORDER BY ProductID, Month;
 
 ```
 
+
 **OUTPUT**
 
 ![image](https://github.com/user-attachments/assets/7a7d76d3-f32d-4a85-bd86-bf8b052200c7)
