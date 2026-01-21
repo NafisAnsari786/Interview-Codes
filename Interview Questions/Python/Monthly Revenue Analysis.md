@@ -27,6 +27,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 ```
+
 **OUTPUT**
 ![image](https://github.com/user-attachments/assets/3853406f-9654-4f66-8897-254df186eba8)
 
