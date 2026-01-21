@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/2a69f044-8d08-4af4-8494-cac8ab5d9c1d)
 
+
 **SOLUTION**
 ```python
 import pandas as pd
