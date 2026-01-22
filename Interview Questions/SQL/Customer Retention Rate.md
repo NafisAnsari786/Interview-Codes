@@ -36,13 +36,13 @@ WITH YearlyActivity AS (
 ),
 RetentionData AS (
 	SELECT CurrentYear AS Year,
-	COUNT(DISTINCT CustomerID) AS Customers,
+	COUNT(DISTINCT CustomerID) AS Total_Customers,
 	COUNT(DISTINCT CASE WHEN NextYear IS NOT NULL THEN CustomerID END) AS RetainedCustomers
 	FROM YearlyActivity
 	GROUP BY CurrentYear
 )
-SELECT Customers, Year, RetainedCustomers,
-ROUND((CAST(RetainedCustomers AS FlOAT) / Customers)*100,2) AS CustomerRetentionRate
+SELECT Year, Total_Customers, RetainedCustomers,
+ROUND((CAST(RetainedCustomers AS FlOAT) / Total_Customers)*100,2) AS CustomerRetentionRate
 FROM RetentionData
 ORDER BY Year;
 ```
