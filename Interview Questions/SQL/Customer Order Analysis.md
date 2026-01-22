@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/MEDIUM-orange" alt="MEDIUM" width="70">
+
 
 ![image](https://github.com/user-attachments/assets/5e8c2fb2-25d0-4112-ba95-f42c1d3f5054)
 
@@ -52,22 +52,27 @@ FROM ConsecutiveMonths;
 
 ```sql
 WITH MonthlyOrders AS (
-    SELECT DISTINCT 
+    SELECT DISTINCT
         CustomerID,
-        DATE_TRUNC(OrderDate, MONTH) AS OrderMonth
+        YEAR(OrderDate) AS OrderYear,
+        MONTH(OrderDate) AS OrderMonth
     FROM CustomerOrders
 ),
-MonthDiffs AS (
+MonthLag AS (
     SELECT 
         CustomerID,
+        OrderYear,
         OrderMonth,
-        LAG(OrderMonth) OVER (PARTITION BY CustomerID ORDER BY OrderMonth) AS PrevMonth
+        LAG(OrderYear) OVER (PARTITION BY CustomerID ORDER BY OrderYear, OrderMonth) AS PrevYear,
+        LAG(OrderMonth) OVER (PARTITION BY CustomerID ORDER BY OrderYear, OrderMonth) AS PrevMonth
     FROM MonthlyOrders
 )
 SELECT DISTINCT CustomerID
-FROM MonthDiffs
--- Checks if the previous order month was exactly 1 month ago
-WHERE DATE_DIFF(OrderMonth, PrevMonth, MONTH) = 1;
+FROM MonthLag
+WHERE 
+    (OrderYear = PrevYear AND OrderMonth = PrevMonth + 1)
+ OR (OrderYear = PrevYear + 1 AND PrevMonth = 12 AND OrderMonth = 1);
+
 ```
 
 **OUTPUT**
