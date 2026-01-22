@@ -32,9 +32,37 @@ INSERT INTO CustomerPurchases (CustomerID, [Month], PurchaseCount) VALUES
 (404, 'Jan-2026', 0),
 (404, 'Feb-2026', 0),
 (404, 'Mar-2026', 0);
-**SOLUTION**
 
-**SOLUTION 1 FOR Months based Churn**
+**SOLUTION 1 Cast Month for no Case statement**
+```sql
+WITH MonthParsed AS (
+    SELECT 
+        CustomerID,
+        PurchaseCount,
+        CAST('01-' + Month AS DATE) AS MonthDate
+    FROM CustomerPurchases
+),
+RankedMonths AS (
+    SELECT 
+        CustomerID,
+        PurchaseCount,
+        ROW_NUMBER() OVER (
+            PARTITION BY CustomerID 
+            ORDER BY MonthDate DESC
+        ) AS rn
+    FROM MonthParsed
+)
+SELECT CustomerID
+FROM RankedMonths
+GROUP BY CustomerID
+HAVING
+    MAX(CASE WHEN rn = 1 THEN PurchaseCount END) = 0
+AND MAX(CASE WHEN rn = 2 THEN PurchaseCount END) = 0
+AND MAX(CASE WHEN rn >= 3 THEN PurchaseCount END) > 0;
+
+```
+
+**SOLUTION 2 FOR Manual Months based Churn**
 ```sql
 WITH MonthParsed AS (
 	SELECT CustomerID,
@@ -74,7 +102,7 @@ AND MAX(CASE WHEN rn = 2 THEN PurchaseCount END) = 0
 AND MAX(CASE WHEN rn >= 3 THEN PurchaseCount END) > 0;
 ```
 
-**SOLUTION 2 Date based Churn If dates are given**
+**SOLUTION 3 Date based Churn If dates are given**
 
 ```sql
 WITH Ranked AS (
