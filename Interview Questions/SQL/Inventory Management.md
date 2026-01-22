@@ -6,30 +6,26 @@
 **SOLUTION**
 ```sql
 WITH LowStock AS (
-    SELECT 
-        ProductID,
-        CASE Month
-            WHEN 'Jan' THEN 1
-            WHEN 'Feb' THEN 2
-            WHEN 'Mar' THEN 3
-        END AS MonthNum,
-        StockLevel,
-        ReorderLevel,
-        CASE 
-            WHEN StockLevel < ReorderLevel THEN 1
-            ELSE 0
-        END AS BelowReorderFlag
-    FROM Inventory
+	SELECT 
+		ProductID,
+		CAST('01-' + Month AS DATE) AS MonthDate,
+		StockLevel,
+		ReorderLevel,
+		CASE
+			WHEN StockLevel < ReorderLevel THEN 1
+			ELSE 0 
+		END AS BelowReorderFLag
+	FROM Inventory
 ),
 ThreeMonthWindow AS (
-    SELECT 
-        ProductID,
-        SUM(BelowReorderFlag) OVER (
-            PARTITION BY ProductID 
-            ORDER BY MonthNum 
-            ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
-        ) AS BelowReorderCount
-    FROM LowStock
+	SELECT
+		ProductID,
+		SUM(BelowReorderFlag) OVER (
+		PARTITION BY ProductID
+		ORDER BY MonthDate
+		ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+		)AS BelowReorderCount
+	FROM LowStock
 )
 SELECT DISTINCT ProductID
 FROM ThreeMonthWindow
