@@ -26,6 +26,32 @@ WHERE rank <= 5
 ORDER BY total_spent DESC;
 ```
 
+**SOLUTION SQL Server**
+
+```sql
+WITH GetMonth AS (
+    SELECT
+        customer_id,
+        SUM(total_amount) AS total_spent
+    FROM Orders
+    WHERE order_date >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) - 1, 0)
+      AND order_date <  DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0)
+    GROUP BY customer_id
+),
+TopCust AS (
+    SELECT
+        customer_id,
+        total_spent,
+        DENSE_RANK() OVER (ORDER BY total_spent DESC) AS rank
+    FROM GetMonth
+)
+SELECT
+    customer_id,
+    total_spent
+FROM TopCust
+WHERE rank <= 5
+ORDER BY total_spent DESC;
+```
 
 <img width="1027" height="771" alt="image" src="https://github.com/user-attachments/assets/7c03a58c-73bd-4bf9-9149-f53b7b8f40da" />
 
