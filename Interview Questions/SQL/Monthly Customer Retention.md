@@ -4,24 +4,7 @@
 
 **SOLUTION 1**
 ```sql
-WITH CustomerLag AS (
-    SELECT
-        CustomerID,
-        Month,
-        PurchaseCount,
-        LAG(PurchaseCount) OVER (PARTITION BY CustomerID ORDER BY FIELD(Month, 'Jan', 'Feb', 'Mar')) AS PreviousPurchaseCount,
-        LAG(Month) OVER (PARTITION BY CustomerID ORDER BY FIELD(Month, 'Jan', 'Feb', 'Mar')) AS PreviousMonth
-    FROM
-        CustomerPurchases
-)
-SELECT
-    CustomerID,
-    Month AS CurrentMonth,
-    PreviousMonth
-FROM
-    CustomerLag
-WHERE
-    PurchaseCount > 0 AND PreviousPurchaseCount > 0;
+
 ```
 
 **SOLUTION 2**
