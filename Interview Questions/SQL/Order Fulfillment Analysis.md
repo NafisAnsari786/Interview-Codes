@@ -22,4 +22,5 @@ ORDER BY CustomerID;
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/7468dc30-a4a1-4b5c-8913-6aefaf536045)
+<img width="1237" height="597" alt="image" src="https://github.com/user-attachments/assets/2368a6e7-8d5c-482e-8394-b7b013792755" />
+
