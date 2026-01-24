@@ -2,9 +2,21 @@
  
 ![image](https://github.com/user-attachments/assets/5d768851-c7fd-4115-8d05-cc8c2c2a18cd)
 
-**SOLUTION 1**
+**SOLUTION 1 SQL Server**
 ```sql
-
+WITH CustStats AS (
+	SELECT 
+		CustomerID,
+		PurchaseMonth,
+		PurchaseCount AS CurrentMonthPurchase,
+		LAG(PurchaseCount) OVER (PARTITION BY CustomerID ORDER BY PurchaseMonth) AS PreviousMonthPurchase
+	FROM Purchases
+)
+SELECT DISTINCT CustomerID
+FROM CustStats
+WHERE PurchaseMonth >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) -1, 0)
+	AND CurrentMonthPurchase > 0
+	AND PreviousMonthPurchase > 0;
 ```
 
 **SOLUTION 2**
