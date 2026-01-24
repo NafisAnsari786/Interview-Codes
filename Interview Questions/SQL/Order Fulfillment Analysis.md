@@ -2,6 +2,23 @@
 
 ![image](https://github.com/user-attachments/assets/6ef46c24-ad2e-4390-80ba-f57db199d1c7)
 
+**Table and Schema**
+CREATE TABLE OrderStats (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderStatus VARCHAR(20)
+);
+
+INSERT INTO OrderStats (OrderID, CustomerID, OrderStatus) VALUES
+(1, 101, 'Fulfilled'),
+(2, 102, 'Pending'),
+(3, 101, 'Fulfilled'),
+(4, 103, 'Fulfilled'),
+(5, 102, 'Fulfilled'),
+(6, 101, 'Pending'),
+(7, 103, 'Fulfilled'),
+(8, 103, 'Cancelled');
+
 **SOLUTION**
 ```sql
 WITH OrderActivity AS (
