@@ -21,13 +21,15 @@ INSERT INTO SalesData (ProductID, ProductName, SaleDate, QuantitySold, Revenue) 
 
 ```SQL
 WITH TopProducts AS (
-    SELECT PRODUCTID, QUANTITYSOLD, REVENUE,
-           DENSE_RANK() OVER (ORDER BY REVENUE DESC) AS dense_rnk
-    FROM SalesData
+	SELECT 
+		ProductID, QuantitySold,
+		Revenue,
+		DENSE_RANK() OVER (ORDER BY Revenue DESC) AS drnk
+	FROM SalesData
 )
-SELECT PRODUCTID, QUANTITYSOLD, REVENUE 
+SELECT	ProductID, QuantitySOld, Revenue
 FROM TopProducts
-WHERE dense_rnk <= 3;
+WHERE drnk <= 3;
 ```
 
 <img width="867" height="562" alt="image" src="https://github.com/user-attachments/assets/37b0f9e2-baf6-4bd0-bff2-709f42bd745d" />
