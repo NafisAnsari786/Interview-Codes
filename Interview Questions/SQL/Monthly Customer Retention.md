@@ -30,7 +30,7 @@ WITH CustStats AS (
 SELECT DISTINCT CustomerID
 FROM CustStats
 WHERE CurrentMonthPurchase > 0 
-  AND PreviousMonthPurchase > 0; -- Added AND and fixed typo
+  AND PreviousMonthPurchase > 0;
 ```
 
 **OUTPUT**
