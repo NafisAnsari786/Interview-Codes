@@ -35,4 +35,5 @@ WHERE CurrentMonthPurchase > 0
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/320529d2-0280-4b22-9bc7-beb0f05315fd)
+<img width="1451" height="592" alt="image" src="https://github.com/user-attachments/assets/a6f1a940-c316-4f2b-843c-555d08fbe26d" />
+
