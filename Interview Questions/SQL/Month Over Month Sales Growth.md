@@ -60,3 +60,5 @@ ORDER BY ProductID, SalesMonth;
 ```
 
 **OUTPUT**
+
+<img width="1222" height="770" alt="image" src="https://github.com/user-attachments/assets/57a00f5d-4e62-4086-babc-a641ba77cfc2" />
