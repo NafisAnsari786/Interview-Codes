@@ -5,7 +5,6 @@
 
 **SOLUTION**
 
- 
 ```sql
 WITH TopProducts AS(
     SELECT ProductID, Category, Revenue,
