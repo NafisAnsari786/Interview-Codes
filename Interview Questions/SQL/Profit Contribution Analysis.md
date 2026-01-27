@@ -41,4 +41,5 @@ ORDER BY ProfitContributionPercentage DESC;
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/d09796a6-856a-4e36-a0fc-084f445a56c1)
+<img width="1468" height="492" alt="image" src="https://github.com/user-attachments/assets/2a225a8c-4708-40ab-945c-e68d896784a4" />
+
