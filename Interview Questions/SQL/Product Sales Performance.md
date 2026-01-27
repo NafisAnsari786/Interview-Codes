@@ -37,14 +37,16 @@ INSERT INTO ProductSales (ProductID, Category, Revenue) VALUES
 **SOLUTION**
 
 ```sql
-WITH TopProducts AS(
-    SELECT ProductID, Category, Revenue,
-    DENSE_RANK() OVER (PARTITION BY Category ORDER BY Revenue DESC) AS dense_rank
-    FROM ProductSales
+WITH ProductStats AS (
+	SELECT ProductID,
+		Category,
+		Revenue,
+		DENSE_RANK() OVER (PARTITION BY Category ORDER BY Revenue DESC) AS drnk
+	FROM ProductSales
 )
 SELECT ProductID, Category, Revenue
-FROM TopProducts
-WHERE dense_rank <= 3;
+FROM ProductStats
+WHERE drnk <= 3;
 ```
 **OUTPUT**
 ![image](https://github.com/user-attachments/assets/e6f0a55a-975d-4fa6-a3b5-128d028da1e9)
