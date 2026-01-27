@@ -4,15 +4,17 @@
 
 **SOLUTION**
 ```sql
-WITH ProductSalesRank AS (
-    SELECT ProductID, Category, Sales,
-    DENSE_RANK() OVER (PARTITION BY Category ORDER BY Sales DESC) AS dense_rank
-    FROM ProductSales
+WITH TopProducts AS (
+	SELECT ProductID,
+		Category,
+		Sales,
+		DENSE_RANK() OVER (PARTITION BY Category ORDER BY Sales DESC) AS drnk
+	FROM ProductSales2
+		
 )
 SELECT ProductID, Category, Sales
-FROM ProductSalesRank
-WHERE dense_rank <= 3
-ORDER BY Category, dense_rank;
+FROM TopProducts
+WHERE drnk <= 3;
 ```
 
 **OUTPUT**
