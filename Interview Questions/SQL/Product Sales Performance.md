@@ -49,4 +49,5 @@ FROM ProductStats
 WHERE drnk <= 3;
 ```
 **OUTPUT**
-![image](https://github.com/user-attachments/assets/e6f0a55a-975d-4fa6-a3b5-128d028da1e9)
+<img width="1240" height="682" alt="image" src="https://github.com/user-attachments/assets/d2575653-cbca-4982-833a-51640ca57d3c" />
+
