@@ -11,7 +11,6 @@ CREATE TABLE EmployeeRecords (
     Salary DECIMAL(10,2)
 );
 
-
 INSERT INTO EmployeeRecords (EmpID, Department, HireDate, TerminationDate, Salary) VALUES
 -- Sales
 (1, 'Sales', '2020-01-15', '2023-11-01', 50000),
