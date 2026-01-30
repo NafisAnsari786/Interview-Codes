@@ -44,4 +44,5 @@ GROUP BY Department;
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/f8510dd4-aaf5-49a0-b040-709ef2e19615)
+<img width="1196" height="502" alt="image" src="https://github.com/user-attachments/assets/f3cadf63-d7e0-4c4c-8cea-b91d76ed5d4d" />
+
