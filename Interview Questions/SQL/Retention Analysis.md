@@ -2,21 +2,21 @@
 
 ![image](https://github.com/user-attachments/assets/4b7d7546-4a75-4cb5-b43b-a5c1b69de63b)
 
-**SOLUTION**
+**SOLUTION Postgresql**
 
 ```sql
-WITH TenureCal AS(
-    SELECT 
-        Department,
-        CASE
-            WHEN TerminationDate IS NULL THEN DATEDIFF(CURRENT_DATE, HireDate) / 365.0
-            ELSE DATEDIFF(TerminationDate, HireDate) / 365.0
-        END AS Tenure
-    FROM EmployeeRecords
+WITH TenureCal AS (
+	SELECT Department,
+		CASE
+			WHEN TerminationDate IS NULL THEN DATEDIFF(DAY, HireDate, GETDATE()) / 365.0
+			ELSE DATEDIFF(DAY, HireDate, TerminationDate) / 365.0
+		END AS Tenure
+	FROM EmployeeRecords
 )
-SELECT Department, AVG(Tenure) AS AvgTenure 
+SELECT Department,
+AVG(Tenure) AS AvgTenure
 FROM TenureCal
-GROUP BY Department
+GROUP BY Department;
 ```
 
 **OUTPUT**
