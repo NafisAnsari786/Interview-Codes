@@ -2,8 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/4b7d7546-4a75-4cb5-b43b-a5c1b69de63b)
 
-**SOLUTION Postgresql**
-
+**SOLUTION SQL Server**
 ```sql
 WITH TenureCal AS (
 	SELECT Department,
