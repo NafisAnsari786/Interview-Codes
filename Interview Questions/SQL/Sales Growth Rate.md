@@ -42,4 +42,3 @@ FROM LaggedSales;
 
 <img width="1088" height="706" alt="image" src="https://github.com/user-attachments/assets/e25791f6-86b6-4e44-a837-96d456212d5d" />
 
-
