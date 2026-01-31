@@ -26,6 +26,7 @@ INSERT INTO EmployeeRecords (EmpID, Department, HireDate, TerminationDate, Salar
 -- Finance
 (9, 'Finance','2019-02-01', NULL,        80000),
 (10,'Finance','2021-07-15', '2023-06-30', 75000);
+
 **SOLUTION SQL Server**
 ```sql
 WITH TenureCal AS (
@@ -41,7 +42,22 @@ AVG(Tenure) AS AvgTenure
 FROM TenureCal
 GROUP BY Department;
 ```
+**SOLUTION PostgreSQL**
 
+```sql
+WITH TenureCal AS(
+    SELECT 
+        Department,
+        CASE
+            WHEN TerminationDate IS NULL THEN DATEDIFF(CURRENT_DATE, HireDate) / 365.0
+            ELSE DATEDIFF(TerminationDate, HireDate) / 365.0
+        END AS Tenure
+    FROM EmployeeRecords
+)
+SELECT Department, AVG(Tenure) AS AvgTenure 
+FROM TenureCal
+GROUP BY Department
+```
 **OUTPUT**
 
 <img width="1196" height="502" alt="image" src="https://github.com/user-attachments/assets/f3cadf63-d7e0-4c4c-8cea-b91d76ed5d4d" />
