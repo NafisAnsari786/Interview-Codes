@@ -6,24 +6,20 @@
 **SOLUTION**
 ```sql
 WITH LaggedSales AS (
-    SELECT
-        Month,
-        Year,
-        TotalSales,
-        LAG(TotalSales) OVER (ORDER BY Year, Month) AS PreviousTotalSales
-    FROM
-        MonthlySales
+	SELECT 
+		SalesMonth, 
+		TotalSales,
+		LAG(TotalSales) OVER (ORDER BY SalesMonth) AS PreviousMonthSales
+	FROM MonthlySales
 )
-SELECT
-    Month,
-    Year,
-    TotalSales,
-    PreviousTotalSales,
-    ROUND(((TotalSales - PreviousTotalSales) / NULLIF(PreviousTotalSales, 0)) * 100, 2) AS GrowthRate
-FROM
-    LaggedSales
-WHERE
-    PreviousTotalSales IS NOT NULL; 
+SELECT 
+	SalesMonth, 
+	TotalSales,
+	PreviousMonthSales,
+	ROUND(CAST(
+		(TotalSales - PreviousMonthSales) * 100.0 / NULLIF(PreviousMonthSales, 0) 
+		AS FLOAT),2) AS MoMGrowthPercentage
+FROM LaggedSales;
 ```
 
 **OUTPUT**
