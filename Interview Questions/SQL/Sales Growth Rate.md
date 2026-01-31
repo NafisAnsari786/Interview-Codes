@@ -24,5 +24,6 @@ FROM LaggedSales;
 
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/86cd769a-7fd3-4c05-a74a-03952333a1ca)
+<img width="1088" height="706" alt="image" src="https://github.com/user-attachments/assets/e25791f6-86b6-4e44-a837-96d456212d5d" />
+
 
