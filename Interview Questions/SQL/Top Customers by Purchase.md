@@ -26,32 +26,26 @@ INSERT INTO CustomerPurchases_2 (CustomerID, Region, PurchaseAmount) VALUES
 
 **SOLUTION**
 ```SQL
-WITH CustomerTotals AS (
-    -- Step 1: Sum the purchases for each customer per region
-    SELECT 
-        Region, 
-        CustomerID, 
-        SUM(PurchaseAmount) AS Total_PurchaseAmount
-    FROM CustomerPurchases
-    GROUP BY Region, CustomerID
+WITH TotalPurchases AS (
+	SELECT 
+		CustomerID,
+		Region,
+		SUM(PurchaseAmount) AS TotalPurchaseAmount
+	FROM CustomerPurchases_2
+	GROUP BY CustomerID, Region
 ),
 RankedCustomers AS (
-    -- Step 2: Rank customers based on their total spend
-    SELECT 
-        Region, 
-        CustomerID, 
-        Total_PurchaseAmount,
-        ROW_NUMBER() OVER (PARTITION BY Region ORDER BY Total_PurchaseAmount DESC) AS rownum
-    FROM CustomerTotals
+	SELECT CustomerID,
+		Region,
+		TotalPurchaseAmount,
+		DENSE_RANK() OVER (PARTITION BY Region ORDER BY TotalPurchaseAmount DESC) AS drn
+	FROM TotalPurchases
 )
--- Step 3: Select the top 3 per region
 SELECT 
-    Region, 
-    CustomerID, 
-    Total_PurchaseAmount
+	CustomerID, Region, TotalPurchaseAmount
 FROM RankedCustomers
-WHERE rownum <= 3
-ORDER BY Region, Total_PurchaseAmount DESC;
+WHERE drn <= 3
+ORDER BY Region, TotalPurchaseAmount DESC;
 ```
 **OUTPUT**
 
