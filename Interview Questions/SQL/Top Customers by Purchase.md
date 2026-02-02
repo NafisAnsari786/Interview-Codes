@@ -33,5 +33,6 @@ ORDER BY Region, Total_PurchaseAmount DESC;
 ```
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/c604b273-1458-46bc-aa76-671c6afaf0b8)
+<img width="1227" height="743" alt="image" src="https://github.com/user-attachments/assets/d7ba4411-2043-4980-a2da-529423c89e77" />
+
 
