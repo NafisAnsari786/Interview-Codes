@@ -13,7 +13,7 @@ TN = 35
 FN = 10
 
 # Precision
-precision = TP / (TP + TP)
+precision = TP / (TP + FP)
 
 # Recall
 recall - TP / (TP + FN)
