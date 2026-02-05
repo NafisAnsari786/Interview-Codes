@@ -2,6 +2,9 @@
 
 ![image](https://github.com/user-attachments/assets/c381ddb0-e0f0-4ff3-bbf2-711fd5af710e)
 
+<img width="667" height="436" alt="image" src="https://github.com/user-attachments/assets/7fce6e3c-261c-4762-a578-6b0a5bca414a" />
+
+
 **SOLUTION**
 ```python
 import pandas as pd
