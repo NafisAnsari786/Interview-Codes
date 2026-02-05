@@ -13,16 +13,16 @@ TN = 35
 FN = 10
 
 # Precision
-
+precision = TP / (TP + TP)
 
 # Recall
-
+recall - TP / (TP + FN)
 
 # F1 Score
-
+f1_score = 2*(precision * recall) / (precision + recall)
 
 # Accuracy
-
+accuracy = (TP + TN) / (TP + TN + FP + TN)
 
 print(f"Precision: {precision:.4f}")
 print(f"Recall: {recall:.4f}")
