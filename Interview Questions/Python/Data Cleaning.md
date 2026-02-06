@@ -83,6 +83,12 @@ plt.grid(axis='y', linestyle='--', alpha=0.8)
 plt.tight_layout()
 
 ```
+**Cleaned Dataset**
+<img width="877" height="333" alt="image" src="https://github.com/user-attachments/assets/e11be163-f4b0-47bd-8bd3-a722e845173e" />
+
+**Pivot Table**
+<img width="852" height="240" alt="image" src="https://github.com/user-attachments/assets/3634d3ae-a6a9-4f5a-ac80-b3c0dedb080e" />
+
 **OUTPUT**
 
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/bd2afdce-b907-4608-a96d-7cf66585b340" />
