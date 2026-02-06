@@ -85,4 +85,5 @@ plt.tight_layout()
 ```
 **OUTPUT**
 
-![image](https://github.com/user-attachments/assets/0e3d9db1-5663-4529-abd5-eb4240eb72fa)
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/bd2afdce-b907-4608-a96d-7cf66585b340" />
+
