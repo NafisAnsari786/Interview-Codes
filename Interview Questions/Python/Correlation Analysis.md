@@ -33,4 +33,5 @@ correlation
 ```
 
 **OUTPUT**
-![image](https://github.com/user-attachments/assets/af41e7ef-d7c4-49aa-9a9f-8f640c09dc02)
+
+<img width="1077" height="142" alt="image" src="https://github.com/user-attachments/assets/0f4f2aa3-4016-4513-899d-ca8817a6ba73" />
