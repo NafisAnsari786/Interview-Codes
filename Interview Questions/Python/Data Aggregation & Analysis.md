@@ -42,9 +42,9 @@ df = pd.DataFrame({
         "West", "North", "South", "East", "West"]
 })
 # Group by 'Category' and calculate total sales and average price
-aggregated_data = df.groupby(Category).aff(
+aggregated_data = df.groupby('Category').aggregate(
     total_sales = ('Sales', 'sum'),
-    avg_price = ('Price', 'mean')
+    avg_price = ('Price', 'mean'))
 
 aggregated_data
 ```
