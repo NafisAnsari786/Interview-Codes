@@ -27,7 +27,9 @@ df = pd.DataFrame({
 df
 
 # Correlation
-correlation = df.cor(df)
+correlation = df[['Age', 'Income']].corr()
+
+correlation
 ```
 
 **OUTPUT**
